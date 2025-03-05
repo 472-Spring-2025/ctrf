@@ -1,0 +1,23 @@
+andrew-example-dojo-id
+Andrew's Example Dojo Name
+Repo-Description
+course
+password
+😀
+
+module-name-1
+module-name-2
+
+module-id-1
+module-1-description
+challenge-1-name
+
+module-2
+module-2-description
+challenge-2-name
+
+input/exec/sample1
+
+input/exec/sample2
+
+
