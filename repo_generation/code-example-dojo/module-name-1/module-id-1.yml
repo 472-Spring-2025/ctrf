@@ -1,0 +1,5 @@
+name: module-name-1
+description: module-description-1
+challenges:
+ - id: challenge-1-name
+ name: challenge-1-name
