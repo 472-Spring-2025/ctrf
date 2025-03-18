@@ -1,0 +1,8 @@
+id: andrew-example-dojo-id
+name: Andrew's Example Dojo Name
+description: Repo-Description
+type: course
+password: password
+award: 😀
+image:
+modules:
