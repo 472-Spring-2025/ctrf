@@ -1,14 +1,12 @@
 id: andrew-example-dojo-id
 name: Andrew's Example Dojo Name
-description: Repo-Description
+description: Repo Description
 type: course
-password: pw
+password: 
 award: 😀
 image: 
 modules: [
-    [module-name-1, module-id-1, module-description-1, [[challenge-1-name, [input/exec/sample1]]]], 
-    [module-name-2, module-id-2, module-description-2, [[challenge-2-name, [input/exec/sample1, input/exec/sample2]], [challenge-3-name, [input/exec/sample1]]]
-    ]]
+    [modulename1, moduleid1, moduledescription1, [[challenge1name, [input/exec/sample1]]]]]
 
 
 

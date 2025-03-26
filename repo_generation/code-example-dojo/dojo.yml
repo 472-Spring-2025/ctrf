@@ -1,11 +1,9 @@
 id: andrew-example-dojo-id
 name: Andrew's Example Dojo Name
-description: Repo-Description
+description: Repo Description
 type: course
-password: pw
 award:
  emoji: 😀
 image: pwncollege/challenge-simple
 modules:
- - id: module-name-1
- - id: module-name-2
+ - id: modulename1

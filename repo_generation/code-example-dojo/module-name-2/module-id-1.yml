@@ -1,7 +1,0 @@
-name: module-name-2
-description: module-description-2
-challenges:
- - id: challenge-2-name
- name: challenge-2-name
- - id: challenge-3-name
- name: challenge-3-name

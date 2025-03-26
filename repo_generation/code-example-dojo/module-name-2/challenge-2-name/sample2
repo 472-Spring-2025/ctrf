@@ -1,2 +1,0 @@
-flag = open("/flag", "r")
-print(flag.readline())

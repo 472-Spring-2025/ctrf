@@ -5,7 +5,7 @@ import os
 import shutil
 from typing import List
 
-baseRepoDir = "../code-example-dojo"
+baseRepoDir = "../../../tiffan-yard"
 
 class YmlFile(ABC):
     def __init__(self, id: str, name: str, description: Optional[str] = None):
@@ -18,8 +18,6 @@ class YmlFile(ABC):
 
     def __str__(self) -> str:
         result = f"id: {self.id}\nname: {self.name}\n"
-        if self.description and self.description.strip():
-            result += f"description: {self.description}\n"
         return result
 
 class RepositoryLevelYmlFile(YmlFile):
@@ -44,7 +42,7 @@ class RepositoryLevelYmlFile(YmlFile):
         result = super().__str__()
         result += f"type: {self.type}\n"
         
-        if self.password.strip():
+        if self.password and self.password.strip():
             result += f"password: {self.password}\n"
             
         if self.award.strip():
@@ -65,7 +63,7 @@ class Challenge:
         self.parent = parent
 
     def __str__(self) -> str:
-        return f" - id: {self.id}\n name: {self.name}\n"
+        return f"  - id: {self.id}\n    name: {self.name}\n"
 
 class ModuleLevelYml(YmlFile):
     def __init__(self, id: str, name: str, description: str, 
@@ -75,8 +73,6 @@ class ModuleLevelYml(YmlFile):
 
     def __str__(self) -> str:
         result = f"name: {self.name}\n"
-        if self.description and not self.description.isspace():
-            result += f"description: {self.description}\n"
         result += "challenges:\n"
         for challenge in self.challenges:
             result += str(challenge)
@@ -182,10 +178,17 @@ def write_to_files(rlyf: RepositoryLevelYmlFile, module_level_ymls: List[ModuleL
         with open(f"{baseRepoDir}/dojo.yml", "w") as repo_out:
             repo_out.write(str(rlyf))
         
+        if rlyf.description:
+            with open(f"{baseRepoDir}/DESCRIPTION.md", "w") as repo_out:
+                repo_out.write(rlyf.description)
+        
         # Write module level YAMLs
         for mod in module_level_ymls:
-            with open(f"{baseRepoDir}/{mod.name}/{mod.id}.yml", "w") as mod_out:
+            with open(f"{baseRepoDir}/{mod.name}/module.yml", "w") as mod_out:
                 mod_out.write(str(mod))
+                if(mod.description): 
+                    with open(f"{baseRepoDir}/{mod.name}/DESCRIPTION.md", "w") as desc_out:
+                        desc_out.write(mod.description)
                 
     except Exception as e:
         print(f"Error: {e}")
