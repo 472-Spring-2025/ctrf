@@ -5,14 +5,14 @@ import os
 import shutil
 from typing import List
 
-baseRepoDir = "../../../tiffan-yard"
+baseRepoDir = "../code-example-dojo"
 
 class YmlFile(ABC):
     def __init__(self, id: str, name: str, description: Optional[str] = None):
         if not id or not name or not id.strip() or not name.strip():
             raise ValueError("ID and name are required")
         
-        self.id = id
+        self.id = str(id).lower
         self.name = name
         self.description = description
 
@@ -57,7 +57,7 @@ class RepositoryLevelYmlFile(YmlFile):
 
 class Challenge:
     def __init__(self, id: str, name: str, files: List[str], parent = None):
-        self.id = id
+        self.id = str(id).lower
         self.name = name
         self.files = files
         self.parent = parent
